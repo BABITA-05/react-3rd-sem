@@ -1,0 +1,7 @@
+task:
+1. create a new project named "secb-rms"
+2. create a new components named navbar inside "components/Nabar.jsx" and footer inside "components/Footer.jsx"
+3. create a folder named "pages"
+4. inside this pages folder: create Login.jsx, Register.jsx, Home.jsx.
+5. Create routes for each pages
+6. create link or menu inside the navbar component

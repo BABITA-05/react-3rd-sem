@@ -1,37 +1,39 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import './index.css'
-import App from './App.jsx'
-import Home, { Second } from './home.jsx'
-import Nav from './navbar.jsx'
-import PropsFirst from './propsScreen/propsFirst.jsx'
-import PropsSecond from './propsScreen/propsSecond.jsx'
-import Profile from './propsScreen/profile.jsx'
-import StateExample from './day6/StateExample.jsx'
-import ConditionalRendering from './day6/ConditionalRendering.jsx'
-let myObj={
-  title:"abc",
-  test:"my test props",
-  count:40
-}
-let userProfile={
-  name:"mmm",
-  address:"aaad",
-  contact:4243423
-}
+import { BrowserRouter, Route, Routes } from 'react-router'
+import StateExample from './day6/StateExample'
+import Home from './home'
+import App from './App'
+import Forgotpw from './forgotPw'
+import PageNotFound from './PageNotFound'
+
+
+/*
+For Route:
+1.BrowserRouter
+2.Routes
+3.Route(Path, element)
+4.Outllet
+5.Link (to)
+
+*/
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Nav />
-    <StateExample></StateExample>
-    <ConditionalRendering></ConditionalRendering>
-    <PropsFirst {...myObj}/>
-    <PropsSecond/>
-    <Profile {...userProfile} onClickGoto={()=>{console.log("from main clicked")}}/>
-    <App />
-    {/* direct link  */}
-    <Home/>
-    <Second />
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<App/>} >
+        <Route index element={<Home/>} />
+        <Route path='login' element={<StateExample/>} />
+        <Route path='ForgotPw' element={<Forgotpw/>}  />
+        <Route path='PageNotFound' element={<PageNotFound/>} ></Route>
+        
+
+
+      </Route>
+    </Routes>
+    </BrowserRouter>
+
+    
   </StrictMode>,
 )
-//never call component as like normal function 
-//Home()
+
